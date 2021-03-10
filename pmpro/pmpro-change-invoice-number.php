@@ -17,7 +17,7 @@ function pmpro_change_order_codes( $code ) {
 
 	$prefix = apply_filters( "pmpro_custom_order_prefix", "INVOICE" ); // You can add your favourite string as well.
 
-	$code =  $prefix . $currentId; //Code cannot just be an integer and _must_contain_a_string_.
+	$code =  $prefix ."-". $currentId; //Code cannot just be an integer and _must_contain_a_string_.
 
 	// We must add some check to look if the order code is not created, otherwise it will be an infinite loop.
 	$check = $wpdb->get_var( "SELECT `id` FROM $wpdb->pmpro_membership_orders WHERE code = '$code' LIMIT 1" );
